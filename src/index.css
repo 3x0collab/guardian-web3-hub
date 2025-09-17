@@ -2,79 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 218 25% 5%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 15% 8%;
+    /* Core Colors - Dark Theme */
+    --background: 220 39% 8%;        /* Deep dark blue */
+    --foreground: 210 40% 98%;       /* Almost white */
+    --card: 220 39% 11%;             /* Slightly lighter dark */
     --card-foreground: 210 40% 98%;
-
-    --popover: 220 15% 8%;
+    --popover: 220 39% 11%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 195 100% 50%;
-    --primary-foreground: 220 15% 8%;
-
+    
+    /* Primary - Bright Cyan */
+    --primary: 190 100% 50%;
+    --primary-foreground: 220 39% 8%;
+    
+    /* Secondary - Teal */
     --secondary: 160 84% 39%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 15% 15%;
+    
+    /* Accent - Bright Green */
+    --accent: 120 100% 45%;
+    --accent-foreground: 220 39% 8%;
+    
+    /* Supporting Colors */
+    --muted: 220 39% 15%;
     --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 195 100% 50%;
-    --accent-foreground: 220 15% 8%;
-
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 220 15% 15%;
-    --input: 220 15% 15%;
-    --ring: 195 100% 50%;
-
+    --border: 220 39% 18%;
+    --input: 220 39% 15%;
+    --ring: 190 100% 50%;
     --radius: 0.75rem;
 
-    /* Web3 Design System */
-    --web3-primary: 195 100% 50%;
-    --web3-secondary: 160 84% 39%;
-    --web3-accent: 240 100% 70%;
-    --web3-dark: 220 15% 8%;
-    --web3-darker: 218 25% 5%;
+    /* Web3 Brand Colors */
+    --web3-primary: 190 100% 50%;    /* Bright cyan */
+    --web3-secondary: 160 84% 39%;   /* Teal */
+    --web3-accent: 120 100% 45%;     /* Bright green */
+    --web3-purple: 280 100% 70%;     /* Bright purple */
+    --web3-dark: 220 39% 8%;         /* Deep dark blue */
+
+    /* Advanced Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--web3-primary)), hsl(var(--web3-secondary)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--web3-secondary)), hsl(var(--web3-accent)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--web3-accent)), hsl(var(--web3-purple)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--web3-dark)), hsl(220 39% 6%), hsl(var(--web3-dark)));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(220 39% 14%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(var(--card) / 0.8) 0%, hsl(220 39% 14% / 0.6) 100%);
+
+    /* Glowing Effects */
+    --glow-primary: 0 0 50px hsl(var(--web3-primary) / 0.4);
+    --glow-secondary: 0 0 40px hsl(var(--web3-secondary) / 0.3);
+    --glow-accent: 0 0 30px hsl(var(--web3-accent) / 0.3);
+    --shadow-card: 0 15px 40px -10px hsl(var(--web3-primary) / 0.15);
+    --shadow-hover: 0 20px 50px -10px hsl(var(--web3-primary) / 0.25);
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%), hsl(240 100% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(160 84% 39%), hsl(195 100% 50%));
-    --gradient-hero: linear-gradient(135deg, hsl(218 25% 5%), hsl(220 15% 8%));
-    --gradient-card: linear-gradient(135deg, hsl(220 15% 8%), hsl(220 15% 12%));
-    
-    /* Shadows */
-    --shadow-glow: 0 0 30px hsl(195 100% 50% / 0.3);
-    --shadow-card: 0 10px 30px -5px hsl(220 15% 5% / 0.5);
-    
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Chart colors */
+    --chart-1: 190 100% 50%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 120 100% 45%;
+    --chart-4: 280 100% 70%;
+    --chart-5: 45 100% 60%;
   }
 
   .light {
@@ -118,6 +105,60 @@ All colors MUST be HSL.
     
     --shadow-glow: 0 0 30px hsl(195 100% 40% / 0.2);
     --shadow-card: 0 10px 30px -5px hsl(222.2 84% 4.9% / 0.1);
+  }
+}
+
+@layer components {
+  /* Glass morphism effect */
+  .glass {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+  
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  
+  /* Interactive elements */
+  .interactive-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  
+  .interactive-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
   }
 }
 

@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { TooltipModal } from "@/components/ui/tooltip-modal";
 import { MessageCircle, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const FAQSection = () => {
   const faqs = [
@@ -35,35 +37,54 @@ const FAQSection = () => {
     <section id="faq" className="py-24 bg-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-muted-foreground">
             Get answers to common questions about wallet security, backup, and our platform features.
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion */}
-        <Card className="bg-gradient-card border-border mb-12">
-          <CardContent className="p-6">
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="border-border">
-                  <AccordionTrigger className="text-left text-foreground hover:text-primary transition-colors">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </CardContent>
-        </Card>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <Card className="glass border-border/30 mb-12">
+            <CardContent className="p-6">
+              <Accordion type="single" collapsible className="w-full">
+                {faqs.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`} className="border-border/30">
+                    <AccordionTrigger className="text-left text-foreground hover:text-web3-primary transition-colors">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </CardContent>
+          </Card>
+        </motion.div>
 
         {/* Support CTA */}
-        <div className="text-center">
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <Card className="bg-gradient-primary p-8 border-none">
             <CardContent className="p-0">
               <div className="flex items-center justify-center mb-4">
@@ -75,15 +96,19 @@ const FAQSection = () => {
               <p className="text-white/80 mb-6 max-w-2xl mx-auto">
                 Our support team is here to help you 24/7. Get personalized assistance with wallet setup, security, and any other questions.
               </p>
-              <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-                <a href="https://www.google.com" className="flex items-center">
+              <TooltipModal
+                title="Contact Support"
+                description="Get 24/7 personalized assistance from our expert support team. We're here to help with wallet setup, security questions, and platform guidance."
+                variant="secondary"
+              >
+                <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
                   Contact Support
                   <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Button>
+                </Button>
+              </TooltipModal>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
