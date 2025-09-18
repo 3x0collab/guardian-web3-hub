@@ -1,18 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "IGO", href: "https://www.google.com" },
-    { name: "Launchpad", href: "https://www.google.com" },
-    { name: "Staking", href: "https://www.google.com" },
-    { name: "Farming", href: "https://www.google.com" },
-    { name: "Crypto", href: "https://www.google.com" },
-    { name: "DeFi", href: "https://www.google.com" },
-    { name: "Web3", href: "https://www.google.com" },
+    { name: "IGO", href: "/igo" },
+    { name: "Launchpad", href: "/launchpad" },
+    { name: "Staking", href: "/staking" },
+    { name: "Farming", href: "/farming" },
+    { name: "Crypto", href: "/crypto" },
+    { name: "DeFi", href: "/defi" },
+    { name: "Web3", href: "/web3" },
     { name: "NFT", href: "https://www.google.com" },
   ];
 
@@ -32,13 +33,23 @@ const Navigation = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                >
-                  {item.name}
-                </a>
+                item.href.startsWith("http") ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </div>
           </div>
@@ -70,13 +81,23 @@ const Navigation = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card border-t border-border">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors duration-200"
-                >
-                  {item.name}
-                </a>
+                item.href.startsWith("http") ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors duration-200"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
               <div className="pt-4">
                 <Button variant="default" className="w-full bg-gradient-primary hover:opacity-90 transition-opacity">

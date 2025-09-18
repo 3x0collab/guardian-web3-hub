@@ -108,9 +108,10 @@ const HeroSection = () => {
             </TooltipModal>
             
             <TooltipModal
-              title="Learn About Security"
-              description="Discover how our advanced security features protect your digital assets with military-grade encryption and multi-layer backup systems."
+              title="Access Your Secure Ledger"
+              description="Access your secure ledger to manage your Web3 assets, view portfolio, and control your digital identity with complete privacy and security."
               variant="secondary"
+              href="/access-ledger"
             >
               <Button 
                 variant="outline" 
@@ -118,7 +119,7 @@ const HeroSection = () => {
                 className="border-border hover:bg-card/50 px-8 py-6 text-lg font-semibold backdrop-blur-sm"
               >
                 <Lock className="w-5 h-5 mr-2" />
-                Learn More
+                Access Ledger
               </Button>
             </TooltipModal>
           </motion.div>

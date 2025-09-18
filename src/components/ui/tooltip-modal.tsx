@@ -24,7 +24,11 @@ export const TooltipModal: React.FC<TooltipModalProps> = ({
 
   const handleContinue = () => {
     setIsOpen(false);
-    window.open(href, "_blank");
+    if (href.startsWith("/")) {
+      window.location.href = href;
+    } else {
+      window.open(href, "_blank");
+    }
   };
 
   return (

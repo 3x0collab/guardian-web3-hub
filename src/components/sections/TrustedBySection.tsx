@@ -90,32 +90,6 @@ const TrustedBySection = () => {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <Card className="bg-gradient-secondary p-8 border-none">
-            <CardContent className="p-0">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Ready to Join Our Growing Community?
-              </h3>
-              <p className="text-white/80 mb-6 max-w-2xl mx-auto">
-                See why leading companies and thousands of users trust SecureWeb3 for their Web3 security needs.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-                  <a href="https://www.google.com" className="flex items-center">
-                    View All Partners
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-                  <a href="https://www.google.com">
-                    Become a Partner
-                  </a>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );
