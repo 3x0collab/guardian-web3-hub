@@ -14,7 +14,7 @@ const Navigation = () => {
     { name: "Crypto", href: "/crypto" },
     { name: "DeFi", href: "/defi" },
     { name: "Web3", href: "/web3" },
-    { name: "NFT", href: "https://www.google.com" },
+    { name: "NFT", href: "/nft" },
   ];
 
   return (

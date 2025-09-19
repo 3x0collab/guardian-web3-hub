@@ -13,6 +13,7 @@ import Farming from "./pages/Farming";
 import Crypto from "./pages/Crypto";
 import DeFi from "./pages/DeFi";
 import Web3 from "./pages/Web3";
+import NFT from "./pages/NFT";
 import AIChatBot from "@/components/ui/ai-chat-bot";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/crypto" element={<Crypto />} />
           <Route path="/defi" element={<DeFi />} />
           <Route path="/web3" element={<Web3 />} />
+          <Route path="/nft" element={<NFT />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

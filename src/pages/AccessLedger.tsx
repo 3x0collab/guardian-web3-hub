@@ -244,9 +244,9 @@ const AccessLedger = () => {
                           <input type="checkbox" className="rounded" />
                           <span className="text-muted-foreground">Remember me</span>
                         </label>
-                        <a href="#" className="text-web3-primary hover:underline">
+                        <button type="button" className="text-web3-primary hover:underline">
                           Forgot password?
-                        </a>
+                        </button>
                       </div>
                       
                       <Button type="submit" className="w-full bg-gradient-primary hover:opacity-90">

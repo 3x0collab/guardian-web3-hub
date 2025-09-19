@@ -4,32 +4,15 @@ import { Separator } from "@/components/ui/separator";
 import { Twitter, Github, Linkedin, Mail, Shield } from "lucide-react";
 
 const FooterSection = () => {
-  const quickLinks = [
-    { name: "IGO", href: "https://www.google.com" },
-    { name: "Launchpad", href: "https://www.google.com" },
-    { name: "Staking", href: "https://www.google.com" },
-    { name: "Farming", href: "https://www.google.com" }
-  ];
-
-  const products = [
-    { name: "Crypto", href: "https://www.google.com" },
-    { name: "DeFi", href: "https://www.google.com" },
-    { name: "Web3", href: "https://www.google.com" },
-    { name: "NFT", href: "https://www.google.com" }
-  ];
-
-  const company = [
-    { name: "About Us", href: "https://www.google.com" },
-    { name: "Security", href: "https://www.google.com" },
-    { name: "Privacy Policy", href: "https://www.google.com" },
-    { name: "Terms of Service", href: "https://www.google.com" }
-  ];
-
-  const support = [
-    { name: "Help Center", href: "https://www.google.com" },
-    { name: "Contact Us", href: "https://www.google.com" },
-    { name: "API Docs", href: "https://www.google.com" },
-    { name: "Community", href: "https://www.google.com" }
+  const allPages = [
+    { name: "IGO", href: "/igo" },
+    { name: "Launchpad", href: "/launchpad" },
+    { name: "Staking", href: "/staking" },
+    { name: "Farming", href: "/farming" },
+    { name: "Crypto", href: "/crypto" },
+    { name: "DeFi", href: "/defi" },
+    { name: "Web3", href: "/web3" },
+    { name: "NFT", href: "/nft" }
   ];
 
   return (
@@ -37,7 +20,7 @@ const FooterSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Logo and Description */}
             <div className="lg:col-span-2">
               <div className="flex items-center mb-6">
@@ -67,11 +50,11 @@ const FooterSection = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
+            {/* Platform Pages - First Column */}
             <div>
-              <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
+              <h4 className="font-semibold text-foreground mb-4">Platform</h4>
               <ul className="space-y-3">
-                {quickLinks.map((link) => (
+                {allPages.slice(0, 4).map((link) => (
                   <li key={link.name}>
                     <a 
                       href={link.href}
@@ -84,45 +67,11 @@ const FooterSection = () => {
               </ul>
             </div>
 
-            {/* Products */}
+            {/* Platform Pages - Second Column */}
             <div>
-              <h4 className="font-semibold text-foreground mb-4">Products</h4>
+              <h4 className="font-semibold text-foreground mb-4">Services</h4>
               <ul className="space-y-3">
-                {products.map((link) => (
-                  <li key={link.name}>
-                    <a 
-                      href={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Company */}
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Company</h4>
-              <ul className="space-y-3">
-                {company.map((link) => (
-                  <li key={link.name}>
-                    <a 
-                      href={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Support */}
-            <div>
-              <h4 className="font-semibold text-foreground mb-4">Support</h4>
-              <ul className="space-y-3">
-                {support.map((link) => (
+                {allPages.slice(4).map((link) => (
                   <li key={link.name}>
                     <a 
                       href={link.href}
