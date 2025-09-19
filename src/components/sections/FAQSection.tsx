@@ -77,38 +77,6 @@ const FAQSection = () => {
           </Card>
         </motion.div>
 
-        {/* Support CTA */}
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <Card className="bg-gradient-primary p-8 border-none">
-            <CardContent className="p-0">
-              <div className="flex items-center justify-center mb-4">
-                <MessageCircle className="w-12 h-12 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Still have questions?
-              </h3>
-              <p className="text-white/80 mb-6 max-w-2xl mx-auto">
-                Our support team is here to help you 24/7. Get personalized assistance with wallet setup, security, and any other questions.
-              </p>
-              <TooltipModal
-                title="Contact Support"
-                description="Get 24/7 personalized assistance from our expert support team. We're here to help with wallet setup, security questions, and platform guidance."
-                variant="secondary"
-              >
-                <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-                  Contact Support
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </TooltipModal>
-            </CardContent>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );
