@@ -7,7 +7,7 @@
 
 **SecureWeb3** is an enterprise-grade cryptocurrency wallet and decentralized data vault designed specifically for organizations. Unlike standard wallets, SecureWeb3 focuses on institutional security, allowing organizations to safely store digital assets, manage sensitive data on-chain, and execute secure trades.
 
-### 🖥️ Dashboard Overview
+### 🖥️  Overview
 *(A real-time view of assets and organization data security status)*
 ![Dashboard View](./Screenshot%202026-01-17%20074426.png)
 
